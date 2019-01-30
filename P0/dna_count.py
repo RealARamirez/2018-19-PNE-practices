@@ -1,0 +1,7 @@
+f = input("Type the sequence you want to count it bases: ")
+f.strip('\n')
+print('Total length:', len(f))
+print('A:', f.count('A'))
+print('C:', f.count('C'))
+print('T:', f.count('T'))
+print('G:', f.count('G'))
