@@ -7,13 +7,16 @@ def count_letter(arg1, arg2):
     return n_characters
 
 # Main program
-s = "AGTACACTGGT"
+s = input("Please enter the sequence: ")
 na = count_letter(s, "A")
 print("The number of the given letter is: {}".format(na))
 # Calculate the length of the sequence
 tl = len(s)
 # Calculate the percent of of the given letter in the sequence
-perc = round(100 * na/tl, 1)
+try:
+    perc = round(100 * na/tl, 1)
+except ZeroDivisionError:
+    perc = 0
 # Print the total length of the sequence
 print("The total length is: {}".format(tl))
 # Print the percentage og the given letter in the sequence
