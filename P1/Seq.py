@@ -9,38 +9,39 @@ class Seq:
     def __init__(self, strbases):
 
         self.strbases = strbases
-        aux_list = []
-        for line in strbases:
-            aux_list.append(line)
-        aux_list = aux_list[1:]
-        ns = " ".join(aux_list)
-        self.strbases = ns
+        aux_var = self.strbases
+        aux_var = aux_var.splitlines()
+        aux_var = aux_var[1:]
+        aux_var = "".join(aux_var)
+        self.strbases = aux_var
 
 
     def len(self):
         return len(self.strbases)
 
     def complement(self):
-        ns = str()
+        ns = []
         for b in self.strbases:
             if b == "A":
-                ns.join("T")
+                ns.append("T")
             elif b == "T":
-                ns.join("A")
+                ns.append("A")
             elif b == "C":
-                ns.join("G")
+                ns.append("G")
             elif b == "G":
-                ns.join("C")
+                ns.append("C")
+        ns = "".join(ns)
         return ns
 
     def reverse(self):
-        ns = str()
-        for i in range((-1)*len(self.strbases),0):
-            ns.join(str((-1)*i))
+        ns = []
+        for i in range((-1)*(len(self.strbases)-1),0):
+            ns.append(self.strbases[(-1)*i])
+        ns = "".join(ns)
         return ns
 
     def count(self, base):
         return count_letter(self.strbases, base)
 
     def perc(self, base):
-        return count_letter(self.strbases, base) * 100 / len(self.strbases)
+        return round((count_letter(self.strbases, base) * 100 / len(self.strbases)), 1)
