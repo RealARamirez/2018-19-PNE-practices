@@ -1,0 +1,13 @@
+Place for taking notes.
+
+My phone IP address with my mobile internet is 10.193.33.253
+My computer IP is 212.128.253.99
+Teacher IP: 212.128.253.64
+My IP at URJC is 10.0.44.156
+
+Ping time 8.8.8.8: 3.49ms
+Ping time 212.128.253.99: 0.606ms
+Ping time computer same network: 0.612ms
+Ping time to my mobile phone: 6.118ms
+Ping to github.com: 140.82.118.4
+THIS IS A TEXT EXAMPLE FOR ADDING TO MY FILE
