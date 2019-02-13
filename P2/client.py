@@ -6,10 +6,10 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Configure the port and the IP
 PORT = 8080
 IP = "212.128.253.101"
-# Create connection
-s.connect((IP, PORT))
 # Create the loop
 while True:
+    # Create connection
+    s.connect((IP, PORT))
     # Message that send (the sequence)
     Message = input("Type the sequence you will work with: ")
     # Create an stop statement when the sequence in empty
