@@ -25,3 +25,4 @@ while True:
     S3 = Seq(S2.complement())
     # Send S3 encoding its string as bites
     s.send(str.encode(S3.strbases))
+
