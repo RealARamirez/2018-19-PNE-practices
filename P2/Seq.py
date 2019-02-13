@@ -25,6 +25,8 @@ class Seq:
                 ns.append("G")
             elif b == "G":
                 ns.append("C")
+            else:
+                ns.append(b)
         ns = "".join(ns)
         return ns
 
