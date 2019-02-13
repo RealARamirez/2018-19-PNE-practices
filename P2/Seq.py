@@ -9,12 +9,6 @@ class Seq:
     def __init__(self, strbases):
 
         self.strbases = strbases
-        if strbases[0] == ">":
-            aux_var = self.strbases
-            aux_var = aux_var.splitlines()
-            aux_var = aux_var[1:]
-            aux_var = "".join(aux_var)
-            self.strbases = aux_var
 
 
     def len(self):
