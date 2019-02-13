@@ -32,7 +32,7 @@ class Seq:
 
     def reverse(self):
         ns = []
-        for i in range((-1)*(len(self.strbases)-1),0):
+        for i in range((-1)*(len(self.strbases)-1),1):
             ns.append(self.strbases[(-1)*i])
         ns = "".join(ns)
         return ns
