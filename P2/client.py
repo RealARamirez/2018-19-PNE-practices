@@ -1,13 +1,13 @@
 # Program for the client
 import socket
 from Seq import Seq
-# Socket for communicating with the server
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Configure the port and the IP
 PORT = 8080
 IP = "212.128.253.101"
 # Create the loop
 while True:
+    # Socket for communicating with the server
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Create connection
     s.connect((IP, PORT))
     # Message that send (the sequence)
@@ -27,4 +27,6 @@ while True:
     s.send(str.encode(S3.strbases))
     # Print the message back
     print(s.recv(2048).decode("utf-8"))
+    # Close the server
+    s.close()
 
