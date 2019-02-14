@@ -1,3 +1,4 @@
 f = open("CPLX2.txt", "r")
-print(f)
+fr = f.read()
+print(fr)
 f.close()
