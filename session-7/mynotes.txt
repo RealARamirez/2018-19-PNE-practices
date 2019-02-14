@@ -4,6 +4,7 @@ My phone IP address with my mobile internet is 10.193.33.253
 My computer IP is 212.128.253.99
 Teacher IP: 212.128.253.64
 My IP at URJC is 10.0.44.156
+My computer IP at home is: 192.168.1.36
 
 Ping time 8.8.8.8: 3.49ms
 Ping time 212.128.253.99: 0.606ms
