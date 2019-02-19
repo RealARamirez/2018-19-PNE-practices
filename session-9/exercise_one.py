@@ -1,7 +1,9 @@
 import socket
+import termcolor
+import sys
 
 # Configure the IP and the Port of the server
-PORT = 8085
+PORT = 8080
 IP =  "212.128.253.98"
 MAX_OPEN_REQUEST = 5
 
@@ -13,6 +15,9 @@ def process_client(cs):
     print("Message for the client: {}".format(msg))
     # Sending the message back to the client
     cs.send(str.encode(msg))
+
+def pro_cl(cs):
+    return cs.recv(9999).decode("utf-8")
 
 # Create the socket, that connect to internet and that is STREAM
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -39,8 +44,10 @@ while True:
     # Atending a client
     process_client(clientsocket)
 
+    if pro_cl(clientsocket) == "EXIT":
+        break
+        clientsocket.close()
+        sys.exit()
 
 
-    # Close the socket
-    clientsocket.close()
 
