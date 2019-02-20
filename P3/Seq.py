@@ -46,3 +46,4 @@ class Seq:
 
     def perc(self, base):
         return round((count_letter(self.strbases, base) * 100 / len(self.strbases)), 1)
+
