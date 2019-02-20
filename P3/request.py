@@ -35,6 +35,7 @@ class request:
         seq = self.request_list()[0]
         command_list = self.request_list()[1:]
         solution = "\n"
+        solution.join(self.seq_checker())
         for elem in command_list:
             solution.join(command_proccessor(seq, elem))
         return solution
