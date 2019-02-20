@@ -27,6 +27,8 @@ def command_proccessor(seq, comm):
         return seq.perc("G")
     elif comm == "percC":
         return seq.perc("C")
+    else:
+        return "Operation not recognised"
 
 
 
