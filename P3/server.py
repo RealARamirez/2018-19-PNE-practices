@@ -26,7 +26,6 @@ while True:
 
     # Receive messages from the client and attach it to the variable message
     message = cl_socket.recv(2048).decode("utf-8")
-    print(message)
 
     # Make the message be an object of type request
     message = request(message)
