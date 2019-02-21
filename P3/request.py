@@ -34,10 +34,10 @@ class request:
     def main_function(self):
         seq = self.request_list()[0]
         command_list = self.request_list()[1:]
-        solution = "\n"
-        solution.join(self.seq_checker())
+        solution = []
+        solution.append(self.seq_checker())
         for elem in command_list:
-            solution.join(command_proccessor(seq, elem))
-        return solution
+            solution.append(command_proccessor(seq, elem))
+        return "\n".join(solution)
 
 
