@@ -36,7 +36,7 @@ class request:
         solution = []
         solution.append(self.seq_checker())
         for elem in command_list:
-            solution.append(command_proccessor(seq, elem))
+            solution.append(str(command_proccessor(seq, elem)))
         return "\n".join(solution)
 
 
