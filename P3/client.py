@@ -1,7 +1,7 @@
 import socket
 
 # Configure the IP
-IP = "212.128.253.99"
+IP = "192.168.1.137"
 
 # Configure the port
 PORT = 8080
@@ -33,7 +33,8 @@ while True:
     s.send(str.encode(message))
 
     # Receive the servers response
-    response = s.recv(2048).decode()
+    response = s.recv(2048).decode("utf-8")
+    print(response)
 
     # Close the socket
     s.close()
