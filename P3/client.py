@@ -16,12 +16,15 @@ while True:
     # Create a loop that add the successive inputs
     while True:
         inp = input("> ")
-        message.append(inp)
         if inp == "":
             break
+        message.append(inp)
 
     # Transform the message into a string
-    message = "\n".join(message)
+    if message == []:
+        message = ""
+    else:
+        message = "\n".join(message)
 
     # Create the socket
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
