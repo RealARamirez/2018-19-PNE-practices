@@ -13,7 +13,7 @@ class request:
 
     # We need to check if the user is asking it to be alive or for doing calculations
     def alive_checker(self):
-        if self.command == "":
+        if self.command == "1A2S3D4F5G6H7J8K9L0":
             return "ALIVE"
         else:
             return True
