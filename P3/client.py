@@ -22,7 +22,7 @@ while True:
 
     # Transform the message into a string
     if message == []:
-        message = ""
+        message = "1A2S3D4F5G6H7J8K9L0"
     else:
         message = "\n".join(message)
 
