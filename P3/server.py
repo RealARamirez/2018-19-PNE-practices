@@ -2,7 +2,7 @@ import socket
 from request import request
 
 # Configure the IP
-IP = "212.128.253.99"
+IP = "192.168.1.137"
 
 # Configure the port
 PORT = 8080
