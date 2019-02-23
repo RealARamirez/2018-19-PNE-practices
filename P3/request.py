@@ -13,8 +13,7 @@ class request:
 
     # We need to check if the user is asking it to be alive or for doing calculations
     def alive_checker(self):
-        seq = self.request_list()[0]
-        if seq == "":
+        if self.command == "":
             return "ALIVE"
         else:
             return True
