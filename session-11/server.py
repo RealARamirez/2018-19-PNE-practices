@@ -1,9 +1,8 @@
 import socket
 import termcolor
 
-# Change this IP to yours!!!!!
-IP = "212.128.253.95"
-PORT = 8089
+IP = "192.168.124.41"
+PORT = 8080
 MAX_OPEN_REQUESTS = 5
 
 
@@ -18,6 +17,25 @@ def process_client(cs):
     print()
     print("Request message: ")
     termcolor.cprint(msg, 'green')
+
+    # Build the HTTP response message. It has the following lines
+    # Status line
+    # header
+    # blank line
+    # Body (content to send)
+
+    contents = "Hello from my first server!"
+
+    # -- Everything is OK
+    status_line = "HTTP/1.1 200 OK\r\n"
+
+    # -- Build the header
+    header = "Content-Type: text/plain\r\n"
+    header += "Content-Length: {}\r\n".format(len(str.encode(contents)))
+
+    # -- Build the message by joining together all the parts
+    response_msg = str.encode(status_line + header + "\r\n" + contents)
+    cs.send(response_msg)
 
     # Close the socket
     cs.close()
