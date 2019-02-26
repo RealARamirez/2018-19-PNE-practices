@@ -19,19 +19,9 @@ def process_client(cs):
     print("Request message: ")
     termcolor.cprint(msg, 'green')
 
-    content = """
-    <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <title>Green server</title>
-      </head>
-      <body style="background-color: brown;">
-        <h1>GREEN SERVER</h1>
-        <p>OMG I'm usin' it!!!</p>
-      </body>
-    </html>
-    """
+    file = open("firstHTMLfile.html", "r")
+    content = file.read()
+    file.close()
 
 
     statusline = "HTTP/1.1 200 OK\r\n"
