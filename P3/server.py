@@ -34,17 +34,18 @@ while True:
     # With a message of type request we can develop the program functionality
 
     # If the request intentionality is to check if the server is working, else it should develop all operations
-    if message.alive_checker() == "ALIVE":
-        # Send the message to the client
-        cl_socket.send(str.encode(message.alive_checker()))
-    # Check if the sequence is correctly typed
-    elif message.seq_checker() == "ERROR":
-        # Send it as a message for the client
-        cl_socket.send(str.encode(message.seq_checker()))
-    # Function for normal messages
+    if message:
+        # Check if the sequence is correctly typed
+        if message.seq_checker() == "ERROR":
+            # Send it as a message for the client
+            cl_socket.send(str.encode(message.seq_checker()))
+        # Function for normal messages
+        else:
+            # Send the resolution of the request operations
+            cl_socket.send(str.encode(message.main_function()))
     else:
-        # Send the resolution of the request operations
-        cl_socket.send(str.encode(message.main_function()))
+        # If there is not a message, send an alive answer
+        cl_socket.send(str.encode("ALIVE"))
 
     # Close the socket
     cl_socket.close()
