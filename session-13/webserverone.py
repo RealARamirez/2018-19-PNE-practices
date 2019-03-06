@@ -12,9 +12,17 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         print("       Cmd:  " + self.command)
         print("      Path:  " + self.path)
 
-        content = "I am the happy server! <3"
+
+        if self.path == "/":
+            file = open("index.html", "r")
+            content = file.read()
+            file.close()
+        else:
+            file = open("error.html", "r")
+            content = file.read()
+            file.close()
         self.send_response(200);
-        self.send_header('Content-Type','text/plain')
+        self.send_header('Content-Type', 'text/html')
         self.send_header('Content-Length', len(str.encode(content)))
         self.end_headers()
 
