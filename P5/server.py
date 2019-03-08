@@ -40,4 +40,5 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 Handler = TestHandler
 
 with socketserver.TCPServer(("", PORT), Handler) as Svr:
+    print("Serving at Port: ", PORT)
     Svr.serve_forever()
