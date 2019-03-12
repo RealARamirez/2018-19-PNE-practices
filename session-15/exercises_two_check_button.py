@@ -18,9 +18,8 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             file.close()
         elif self.requestline.startswith("GET /echo?msg="):
             message = self.requestline.split(" ")[1]
-            message = message.split("&")
-            if message[1].endswith("on"): message = message[0][10:].upper()
-            else: message = message[0][10:]
+            if message.endswith("chk=on"): message = message.split("&")[0][10:].upper()
+            else: message = message[10:]
             content = """
                         <!DOCTYPE html>
                         <html lang="en" dir="ltr">
