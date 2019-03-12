@@ -3,7 +3,7 @@ import socketserver
 import termcolor
 
 # Define the port
-PORT = 8000
+PORT = 8002
 
 
 class TestHandler(http.server.BaseHTTPRequestHandler):
@@ -12,7 +12,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         termcolor.cprint(self.requestline, "green")
         print("       Cmd:  " + self.command)
         print("      Path:  " + self.path)
-        file = open("index.html", "r")
+        file = open("exercises_two_check_button.html", "r")
         content = file.read()
         file.close()
         path = self.path
