@@ -13,6 +13,9 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         file = open("index.html", "r")
         content = file.read()
         file.close()
+        path = str(self.path)
+        message = path.lstrip("/act?msg=")
+        print(message)
         self.send_response(200);
         self.send_header('Content-Type', 'text/html')
         self.send_header('Content-Length', len(str.encode(content)))
