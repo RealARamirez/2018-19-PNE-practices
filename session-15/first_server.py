@@ -12,7 +12,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
         termcolor.cprint(self.requestline, "green")
         print("       Cmd:  " + self.command)
         print("      Path:  " + self.path)
-        file = open("HTMLexample.html", "r")
+        file = open("index.html", "r")
         content = file.read()
         file.close()
         path = self.path
