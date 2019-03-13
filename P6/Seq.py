@@ -16,6 +16,8 @@ class Seq:
             aux_var = "".join(aux_var)
             self.strbases = aux_var
 
+    def __str__(self):
+        return self.strbases
 
     def len(self):
         return len(self.strbases)
