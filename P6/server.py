@@ -24,9 +24,9 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             if sequence.checker():
                 message = "The sequence given is: {},".format(sequence)
                 for a in range(len(request)):
-                    if request[a].startswith("len"): message += "its length is {},".format(sequence.len())
-                    elif request[a].endswith("count"): message += "and the operation count on the {} base is {}.".format(request[a+1][-1], sequence.count(request[a+1][-1]))
-                    elif request[a].endswith("perc"): message += "and the operation percentage on the {} base is {}.".format(request[a+1][-1], sequence.count(request[a+1][-1]))
+                    if request[a].startswith("len"): message += "its length is {}, ".format(sequence.len())
+                    elif request[a].endswith("count"): message += "and the operation count on the {} base is {}. ".format(request[a+1][-1], sequence.count(request[a+1][-1]))
+                    elif request[a].endswith("perc"): message += "and the operation percentage on the {} base is {}.".format(request[a+1][-1], sequence.perc(request[a+1][-1]))
                 content = """
                         <!DOCTYPE html>
                         <html lang="en" dir="ltr">
@@ -42,7 +42,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                         </html>
                         """.format(message)
             else:
-                file = open("error_message", "r"):
+                file = open("error_message", "r")
                 content = file.read()
                 file.close()
         else:
