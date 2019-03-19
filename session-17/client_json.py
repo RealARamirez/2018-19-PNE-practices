@@ -32,15 +32,16 @@ person = json.loads(data1)
 
 def array_wk(array):
     for i,num in enumerate(array):
-        termcolor.cprint("  Phone", "blue", end=" ")
-        print(i)
+        termcolor.cprint("  Phone {}:".format(i), "blue", end="\n")
         termcolor.cprint("      Type:", "red", end=" ")
         print(num["type"])
         termcolor.cprint("      Number:", "red", end=" ")
         print(num["number"])
     return
-#Main
+
+# Main
 print("Total people in the database {}\n".format(len(person["people"])))
+
 for elem in person["people"]:
     termcolor.cprint("Name: ", "green", end=" ")
     print(elem["Firstname"], elem["Lastname"])
@@ -49,3 +50,4 @@ for elem in person["people"]:
     termcolor.cprint("Number of phones: ", "green", end=" ")
     print(len(elem["phoneNumber"]))
     array_wk(elem["phoneNumber"])
+    print("\n")
