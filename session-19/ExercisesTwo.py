@@ -16,7 +16,7 @@ r1 = conn.getresponse()
 num = r1.read().decode("utf-8")
 conn.close()
 num = json.loads(num)
-number = num[0]["woeid"]
+number = str(num[0].get("woeid"))
 conn = http.client.HTTPSConnection(HOSTNAME)
 conn.request(METHOD, ENDPOINT2 + number + "/", None, headers)
 r2 = conn.getresponse()
