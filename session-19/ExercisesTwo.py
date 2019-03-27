@@ -7,25 +7,35 @@ HOSTNAME = "www.metaweather.com"
 ENDPOINT1 = "/api/location/search/?query="
 ENDPOINT2 = "/api/location/"
 METHOD = "GET"
+headers = {'User-Agent': 'http-client'}
 
 while True:
     City = input("What city are you interested in?: ")
-    headers = {'User-Agent': 'http-client'}
+    if len(City.split(" ")) > 1:
+        lCity = City.split(" ")
+        city = lCity[0]
+    else: city = City
     try:
         conn = http.client.HTTPSConnection(HOSTNAME)
-        conn.request(METHOD, ENDPOINT1 + City, None, headers)
+        conn.request(METHOD, ENDPOINT1 + city, None, headers)
         r1 = conn.getresponse()
         num = r1.read().decode("utf-8")
         conn.close()
         num = json.loads(num)
-        if num[0].get("title") != City:
-            print("It is not a valid city")
-            break
-        if len(num) != 1:
-            print("It is not a valid city")
-            break
-        number = str(num[0].get("woeid"))
-    except (UnicodeDecodeError, IndexError):
+        if len(City.split(" ")) > 1:
+            for elem in num:
+                if elem.get("title").lower() == City.lower(): number = str(elem.get("woeid"))
+            number = number
+        elif len(num) > 1:
+            termcolor.cprint("You have several options according to the city.", "white", end="\n")
+            a = 1
+            for elem in num:
+                termcolor.cprint("{} {}".format(a, elem.get("title")), "white", end="\n")
+                a +=1
+            b = input("Please write the number of the option you want to choose: ")
+            number = str(num[int(b)-1].get("woeid"))
+        else: number = str(num[0].get("woeid"))
+    except (UnicodeDecodeError, IndexError, NameError):
         print("It is not a valid city")
         break
     conn = http.client.HTTPSConnection(HOSTNAME)
